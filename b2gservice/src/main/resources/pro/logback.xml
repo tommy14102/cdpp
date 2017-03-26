@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %-20(%d{yyyy-MM-dd HH:mm:ss.SSS}) %-5level %line %logger{80}.%method - %msg%n
+            </pattern>
+            <charset>UTF-8</charset> <!-- 此处设置字符集 -->
+        </encoder>
+    </appender>
+    <!--
+    <appender name="VRSLogFile"
+        class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${catalina.home}/logs/vrs.log</File>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%-20(%d{MM-dd HH:mm:ss.SSS}) %-5level %line
+                %msg%n </pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.home}/logs/vrs.log.%d{yyyy-MM-dd}
+            </fileNamePattern>
+        </rollingPolicy>
+    </appender>
+    <appender name="VRSLogFile-ERROR"
+        class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${catalina.home}/logs/vrs.log.error</File>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%-20(%d{MM-dd HH:mm:ss.SSS}) %-5level %line
+                %msg%n </pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.home}/logs/vrs.log.error.%d{yyyy-MM-dd}
+            </fileNamePattern>
+        </rollingPolicy>
+    </appender>
+    -->
+    <logger name="org.springframework" level="INFO" />
+    <logger name="com.linktech.lnhx" level="INFO" />
+    <logger name="org.mybatis" level="INFO" />
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <!--
+        <appender-ref ref="${logback.appender}" />
+        <appender-ref ref="${logback.appender}-ERROR" />
+        -->
+    </root>
+</configuration>
